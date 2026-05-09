@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariano Rivadeneyra — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #000000;
+    --ink-mid: #2D2D2D;
+    --ink-light: #555555;
+    --navy: #1F3864;
+    --blue: #1a56a0;
+    --blue-light: #e8f0f9;
+    --rule: #cbd5de;
+    --bg: #ffffff;
+    --page-w: 8.5in;
+    --pad-x: 0.55in;
+    --pad-y: 0.45in;
+  }
+  html, body { background: #e2e6ea; font-family: 'DM Sans', sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: var(--page-w); min-height: 11in; margin: 32px auto; background: var(--bg); box-shadow: 0 8px 48px rgba(0,0,0,0.18); display: grid; grid-template-columns: 2.1in 1fr; grid-template-rows: auto 1fr; overflow: hidden; }
+
+  /* SIDEBAR */
+  .sidebar { background: var(--navy); padding: var(--pad-y) 0.32in; display: flex; flex-direction: column; grid-row: 1 / 3; position: relative; }
+  .sidebar::after { content: ''; position: absolute; top: 0; right: -1px; width: 3px; height: 100%; background: var(--blue); border-radius: 4px 0 0 4px; }
+  .sidebar-name { font-family: 'DM Serif Display', serif; font-size: 22pt; line-height: 1.1; color: #fff; letter-spacing: -0.5px; margin-bottom: 3px; }
+  .sidebar-name em { font-style: italic; color: #a8c4e0; }
+  .sidebar-title { font-size: 7.5pt; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: #5fa8e8; margin-bottom: 18px; }
+  .sidebar-rule { height: 1px; background: rgba(255,255,255,0.12); margin: 14px 0; }
+  .sidebar-section-label { font-size: 6.5pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #5fa8e8; margin-bottom: 8px; margin-top: 16px; }
+  .contact-item { font-size: 7.8pt; color: rgba(255,255,255,0.72); margin-bottom: 5px; line-height: 1.4; word-break: break-all; }
+  .contact-item strong { color: rgba(255,255,255,0.45); font-weight: 500; display: block; font-size: 6.5pt; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 1px; }
+  .skill-tag { display: block; font-size: 7.5pt; color: rgba(255,255,255,0.80); padding: 3px 0; border-bottom: 1px solid rgba(255,255,255,0.07); line-height: 1.4; }
+  .skill-tag:last-child { border-bottom: none; }
+  .skill-tag span { color: rgba(255,255,255,0.38); font-size: 6.8pt; display: block; margin-top: 1px; }
+  .lang-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .lang-row:last-child { border-bottom: none; }
+  .lang-name { font-size: 7.8pt; color: rgba(255,255,255,0.80); }
+  .lang-level { font-size: 6.5pt; color: #5fa8e8; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; }
+  .cert-item { font-size: 7.3pt; color: rgba(255,255,255,0.72); padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.07); line-height: 1.4; }
+  .cert-item:last-child { border-bottom: none; }
+  .cert-item em { color: rgba(255,255,255,0.38); font-style: normal; font-size: 6.8pt; display: block; margin-top: 1px; }
+
+  /* HEADER STRIP */
+  .header-strip { background: var(--blue-light); padding: 0.22in var(--pad-x) 0.18in var(--pad-x); border-bottom: 2px solid var(--blue); }
+  .summary-text { font-size: 8.4pt; color: #2D2D2D; line-height: 1.65; font-weight: 400; }
+  .summary-text strong { color: var(--navy); font-weight: 600; }
+
+  /* MAIN */
+  .main { padding: 0.22in var(--pad-x) var(--pad-y) var(--pad-x); }
+  .section { margin-bottom: 14px; }
+  .section-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .section-label { font-size: 6.8pt; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); white-space: nowrap; }
+  .section-line { flex: 1; height: 1px; background: var(--rule); }
+
+  /* EMPLOYER */
+  .employer { margin-bottom: 10px; }
+  .employer-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1px; }
+  .employer-name { font-family: 'DM Serif Display', serif; font-size: 10.5pt; color: var(--ink); letter-spacing: -0.2px; }
+  .employer-dates { font-size: 7.5pt; color: var(--ink-light); font-weight: 400; white-space: nowrap; }
+  .employer-sub { font-size: 7.5pt; color: var(--ink-light); font-style: italic; margin-bottom: 7px; }
+
+  /* ROLE */
+  .role { margin-bottom: 9px; padding-left: 10px; border-left: 2px solid var(--blue-light); }
+  .role:last-child { margin-bottom: 0; }
+  .role-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+  .role-title { font-size: 8.6pt; font-weight: 700; color: var(--ink); letter-spacing: -0.1px; }
+  .role-title .badge { display: inline-block; background: var(--navy); color: #fff; font-size: 6pt; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 1px 5px; border-radius: 2px; margin-left: 5px; vertical-align: middle; position: relative; top: -1px; }
+  .role-dates { font-size: 7.2pt; color: var(--ink-light); white-space: nowrap; }
+  .bullets { padding-left: 9px; list-style: none; }
+  .bullets li { font-size: 7.8pt; color: var(--ink-mid); line-height: 1.55; margin-bottom: 3.5px; position: relative; padding-left: 10px; }
+  .bullets li::before { content: ''; position: absolute; left: 0; top: 6px; width: 4px; height: 4px; background: var(--navy); border-radius: 50%; opacity: 0.55; }
+  .bullets li strong { color: var(--ink); font-weight: 600; }
+
+  /* EDUCATION */
+  .edu-block { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+  .edu-school { font-family: 'DM Serif Display', serif; font-size: 9.5pt; color: var(--ink); }
+  .edu-dates { font-size: 7.2pt; color: var(--ink-light); white-space: nowrap; }
+  .edu-degree { font-size: 7.8pt; color: var(--ink-mid); font-style: italic; margin-bottom: 3px; }
+  .edu-note { font-size: 7.2pt; color: var(--ink-light); font-style: italic; margin-top: 3px; }
+  .edu-item + .edu-item { margin-top: 8px; }
+
+  /* LEADERSHIP */
+  .leadership-row { display: flex; gap: 6px; margin-bottom: 4px; font-size: 7.8pt; color: var(--ink-mid); line-height: 1.5; }
+  .leadership-row strong { color: var(--ink); font-weight: 600; white-space: nowrap; }
+
+  @media print {
+    html, body { background: white; }
+    .page { margin: 0; box-shadow: none; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-name">Mariano<br><em>Rivadeneyra</em></div>
+    <div class="sidebar-title">Revenue &amp; Finance Operations</div>
+    <div class="sidebar-rule"></div>
+
+    <div class="sidebar-section-label">Contact</div>
+    <div class="contact-item"><strong>Location</strong>Dallas, TX</div>
+    <div class="contact-item"><strong>Email</strong>marianorivadeneyra@hotmail.com</div>
+    <div class="contact-item"><strong>Phone</strong>(945) 340-0333</div>
+    <div class="contact-item"><strong>Portfolio</strong>marianorivadeneyra.github.io</div>
+    <div class="sidebar-rule"></div>
+
+    <div class="sidebar-section-label">Technical Skills</div>
+    <span class="skill-tag">SQL<span>Advanced — pipelines, warehousing, ETL</span></span>
+    <span class="skill-tag">Power BI<span>Dashboards, DAX, data modeling</span></span>
+    <span class="skill-tag">Advanced Excel<span>VBA, Power Query, M-language</span></span>
+    <span class="skill-tag">ETL Pipeline Development<span>Architecture & automation</span></span>
+    <span class="skill-tag">Data Warehousing<span>Design & implementation</span></span>
+    <span class="skill-tag">Python<span>Working knowledge</span></span>
+    <div class="sidebar-rule"></div>
+
+    <div class="sidebar-section-label">Finance &amp; Ops</div>
+    <span class="skill-tag">Revenue Reconciliation</span>
+    <span class="skill-tag">Chargeback &amp; Dispute Mgmt</span>
+    <span class="skill-tag">Cash Controls &amp; Loss Prevention</span>
+    <span class="skill-tag">Fraud Detection &amp; Analytics</span>
+    <span class="skill-tag">Variance Analysis</span>
+    <span class="skill-tag">Financial Reporting</span>
+    <div class="sidebar-rule"></div>
+
+    <div class="sidebar-section-label">Languages</div>
+    <div class="lang-row"><span class="lang-name">Spanish</span><span class="lang-level">Native</span></div>
+    <div class="lang-row"><span class="lang-name">English</span><span class="lang-level">Fluent</span></div>
+    <div class="sidebar-rule"></div>
+
+    <div class="sidebar-section-label">Certifications</div>
+    <div class="cert-item">Investment Strategies Advisor<em>AMIB — Mexico</em></div>
+    <div class="cert-item">Financial Accounting<em>HBS Online — 2025</em></div>
+    <div class="cert-item">Leading with Finance<em>HBS Online — 2025</em></div>
+    <div class="cert-item">Associate Data Engineer in SQL<em>DataCamp — In Progress</em></div>
+    <div class="cert-item">Excel Skills for Business<em>Macquarie University / Coursera</em></div>
+  </aside>
+
+  <!-- HEADER STRIP -->
+  <header class="header-strip">
+    <p class="summary-text">
+      Finance and Revenue Operations professional with a track record of <strong>rapid advancement (intern to project lead)</strong> at Sun Holdings, the 2nd largest multi-unit franchisee in the US. Builds end-to-end financial infrastructure: SQL pipelines, automated reconciliation systems, and transaction-level analytics delivering <strong>six-figure recoveries</strong> and improved accounting accuracy across <strong>1,200+ locations across 14 brands</strong>. Combines financial acumen with hands-on technical execution across Finance, Accounting, Legal, and Operations.
+    </p>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- EXPERIENCE -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-label">Experience</span>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="employer">
+        <div class="employer-header">
+          <span class="employer-name">Sun Holdings</span>
+          <span class="employer-dates">Jul 2023 – Present</span>
+        </div>
+        <div class="employer-sub">2nd largest multi-unit franchisee in the US &nbsp;|&nbsp; 1,200+ locations, 14 brands across 30+ states</div>
+
+        <!-- CC Lead -->
+        <div class="role">
+          <div class="role-header">
+            <span class="role-title">Revenue Analyst — Credit Card Operations <span class="badge">Lead</span></span>
+            <span class="role-dates">Feb 2025 – Present</span>
+          </div>
+          <ul class="bullets">
+            <li>Own end-to-end design and execution of Sun Holdings' chargeback tracking and dispute resolution program (built from scratch), improving recovery rate from <strong>0% to ~30%</strong> and enabling <strong>six-figure annual recoveries</strong></li>
+            <li>Architected SQL-based pipelines to extract, cleanse, transform, and warehouse transaction-level payment data from multiple source systems; operational data foundation for reconciliation, reporting, and dispute workflows</li>
+            <li>Built Power BI dashboards presenting dispute trends, recovery rates, aging analysis, and resolution patterns to finance and executive leadership; directly informs strategic decisions on processor relationships</li>
+            <li>Identified fraud cases and fee discrepancies; built transaction-level <strong>anomaly detection logic</strong> into reconciliation pipelines — including tip manipulation, discount abuse, and gift card schemes</li>
+            <li>Leveraged reconciliation infrastructure to rapidly quantify a <strong>six-figure processor overbilling</strong> across 130 Applebee's locations; deposit-level data directly supported full recovery from Fiserv</li>
+            <li>Leading enterprise-wide expansion of reconciliation data warehouse to all brands, standardizing variance tracing and improving accounting accuracy at portfolio scale</li>
+            <li>Supported a <strong>$500K+ legal matter</strong> through forensic transaction-level data extraction, analysis, and visualization; findings directly used by corporate legal team</li>
+          </ul>
+        </div>
+
+        <!-- Cash Controls -->
+        <div class="role">
+          <div class="role-header">
+            <span class="role-title">Revenue Analyst — Cash Controls &amp; Reconciliation</span>
+            <span class="role-dates">Jul 2024 – Feb 2025</span>
+          </div>
+          <ul class="bullets">
+            <li>Contributed to design and implementation of standardized cash processing procedures across 500+ stores as part of a three-person team; directly oversaw ~500 locations, helping achieve <strong>~85% automation</strong> and a <strong>57% reduction in cash shortages</strong></li>
+            <li>Built automated extraction, transformation, and variance-flagging pipelines improving daily cash visibility for regional finance leadership</li>
+            <li>Detected cash theft and compliance violations through daily shortage analysis; findings supported disciplinary action and drove procedural reforms across all brands</li>
+          </ul>
+        </div>
+
+        <!-- Intern -->
+        <div class="role">
+          <div class="role-header">
+            <span class="role-title">Finance &amp; Revenue Intern</span>
+            <span class="role-dates">Jul 2023 – Jul 2024</span>
+          </div>
+          <ul class="bullets">
+            <li>Delivered revenue analysis, automated reporting, and process improvements supporting regional managers across 400+ stores; quality of work led to a full-time offer upon graduation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-label">Education</span>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-block">
+          <span class="edu-school">Tecnológico de Monterrey (ITESM)</span>
+          <span class="edu-dates">Aug 2020 – Jul 2024</span>
+        </div>
+        <div class="edu-degree">Bachelor of Science in Finance &nbsp;|&nbsp; Concentration: Fund Management &amp; Alternative Investments</div>
+        <ul class="bullets">
+          <li><strong>"Borrego de Oro"</strong> — Top graduating student, awarded for leadership distinction</li>
+          <li><strong>60% Leadership Scholarship</strong> — Maximum leadership scholarship awarded per generation</li>
+        </ul>
+      </div>
+
+      <div class="edu-item" style="margin-top:8px;">
+        <div class="edu-block">
+          <span class="edu-school">Harvard Business School Online</span>
+          <span class="edu-dates">In Progress — Apr 2026</span>
+        </div>
+        <div class="edu-degree">Finance &amp; Accounting Specialization</div>
+        <div class="edu-note">Completed: Financial Accounting (2025) &nbsp;·&nbsp; Leading with Finance (2025) &nbsp;·&nbsp; Final course: Strategic Financial Analysis (In Progress)</div>
+      </div>
+    </div>
+
+    <!-- LEADERSHIP -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-label">Leadership &amp; Recognition</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="leadership-row"><strong>Student Society President</strong>&nbsp;— Led budgeting, organizational restructuring, and sponsorship at Tecnológico de Monterrey</div>
+      <div class="leadership-row"><strong>Golden Ambassador</strong>&nbsp;— Recognized as top-10 national Tec Ambassador; represented institution in national training and engagement programs</div>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
